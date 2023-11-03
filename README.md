@@ -34,7 +34,7 @@ $ python3 ./miniserver.py
 
 ## Usage
 
-The content of post requests will be saved in the "Data" folder. Your server logs are in "Log"
+The content of POST requests will be saved in the "Data" folder. Your server logs are in "Log"
 
 ```bash
 usage: miniserver.py [-h] [-sf] [-dp] [-p PORT]
@@ -45,6 +45,8 @@ optional arguments:
   -dp, --disablepost    Disable server accepting POST requests
   -p PORT, --port PORT  Port to listen on - Defaults to 8000 - False by default
 ```
+
+Example output
 
 ```bash
 $python miniserver.py -p 8080
@@ -61,4 +63,9 @@ $python miniserver.py -p 8080
 [LOG] GET request received from 127.0.0.1 for /
 ```
 
+Example POST data
 
+```POST from: 127.0.0.1
+Time: 03-11-2023@13:03:48
+Post Data: 
+Secretdata!```
