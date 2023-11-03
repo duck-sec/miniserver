@@ -41,7 +41,7 @@ optional arguments:
   -h, --help            show this help message and exit
   -sf, --servefiles     Serve files in the directory miniserver runs in - Defaults to False
   -dp, --disablepost    Disable server accepting POST requests
-  -p PORT, --port PORT  Port to listen on - Defaults to 8000 - False by default
+  -p PORT, --port PORT  Port to listen on - Defaults to 8000
 ```
 
 Example output
