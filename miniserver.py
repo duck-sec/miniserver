@@ -9,7 +9,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('-sf', '--servefiles', action='store_true', required=False, default=False, help="Serve files in the directory miniserver runs in - Defaults to False")
 parser.add_argument('-dp', '--disablepost', action='store_true', required=False, default=False, help="Disable server accepting POST requests")
-parser.add_argument('-p', '--port', type=int, required=False, help="Port to listen on - Defaults to 8000 - False by default")
+parser.add_argument('-p', '--port', type=int, required=False, help="Port to listen on - Defaults to 8000")
 args = parser.parse_args()
 
 # Define ANSI escape codes for text colors
