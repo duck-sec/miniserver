@@ -63,7 +63,9 @@ $python miniserver.py -p 8080
 
 Example POST data
 
-```POST from: 127.0.0.1
+```
+POST from: 127.0.0.1
 Time: 03-11-2023@13:03:48
 Post Data: 
-Secretdata!```
+Secretdata!
+```
