@@ -11,8 +11,6 @@ A simple server in Python which adds some functionality I commonly need, mainly 
 
 ## Features
 
-Miniserver 
-
 - Minimal requirements, does not depend on Flask etc.
 - Option to serve a custom index page, or display the content of the running directory
 - Accepts POST requests, can be disabled if you wish
@@ -27,8 +25,8 @@ Miniserver
 Clone the repo, run the file, nice and easy :D
 
 ```bash
-$ git clone https://github.com/duck-sec/Simple-Practice-Test-Question-App
-$ cd Simple-Practice-Test-Question-App
+$ git clone https://github.com/duck-sec/miniserver/
+$ cd miniserver
 $ python3 ./miniserver.py
 ```
 
