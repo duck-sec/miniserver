@@ -1,4 +1,4 @@
-# miniserver
+# Miniserver
 
 A simple server in Python which adds some functionality I commonly need, mainly for security testing. 
 
