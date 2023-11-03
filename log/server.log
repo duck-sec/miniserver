@@ -1,0 +1,36 @@
+[92m[LOG] [0mStarting the server on port 8000. Press Ctrl+C to stop.
+[92m[LOG] [0mServer stopped.
+[92m[LOG] [0mStarting the server on port 8000. Press Ctrl+C to stop.
+[92m[LOG] [0mServer stopped.
+[92m[LOG] [0mStarting the server on port 8000. Press Ctrl+C to stop.
+[92m[LOG] [0mGET request received for /.git/logs/refs/remotes/origin/master - Page served.
+[92m[LOG] [0mServer stopped.
+[92m[LOG] [0mStarting the server on port 8000. Press Ctrl+C to stop.
+[92m[LOG] [0mServer stopped.
+[92m[LOG] [0mStarting the server on port 8000. Press Ctrl+C to stop.
+[92m[LOG] [0mGET request received for / - Directory listing served.
+[92m[LOG] [0mServer stopped.
+[92m[LOG] [0mStarting the server on port 8000. Press Ctrl+C to stop.
+[92m[LOG] [0mGET request received from 127.0.0.1 for /
+[92m[LOG] [0mServer stopped.
+[92m[LOG] [0mStarting the server on port 8000. Press Ctrl+C to stop.
+[92m[LOG] [0mGET request received for / - Directory listing served.
+[92m[LOG] [0mGET request received for / - Directory listing served.
+[92m[LOG] [0mServer stopped.
+[92m[LOG] [0mStarting the server on port 8000. Press Ctrl+C to stop.
+[92m[LOG] [0mGET request received for / - Directory listing served.
+[92m[LOG] [0mServer stopped.
+[92m[LOG] [0mStarting the server on port 8181. Press Ctrl+C to stop.
+[92m[LOG] [0mGET request received from 127.0.0.1 for /
+[92m[LOG] [0m[91m[ERROR] [0mGET request received for /favicon.ico - 404 Not Found.
+[92m[LOG] [0mServer stopped.
+[92m[LOG] [0mStarting the server on port 8181. Press Ctrl+C to stop.
+[92m[LOG] [0mServer stopped.
+[92m[LOG] [0mStarting the server on port 8181. Press Ctrl+C to stop.
+[92m[LOG] [0mServer stopped.
+[92m[LOG] [0mStarting the server on port 8181. Press Ctrl+C to stop.
+[92m[LOG] [0mPOST request received from 127.0.0.1 and saved to file: data/127.0.0.1_03-11-2023@12:51:02.txt
+[92m[LOG] [0mServer stopped.
+[92m[LOG] [0mStarting the server on port 8181. Press Ctrl+C to stop.
+[92m[LOG] [0m[91m[ERROR] [0mPOST request received, but POST requests are disabled.
+[92m[LOG] [0mServer stopped.

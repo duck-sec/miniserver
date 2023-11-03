@@ -5,7 +5,9 @@ import argparse
 
 # Accept some arguments
 parser = argparse.ArgumentParser()
-parser.add_argument('-sf', '--servefiles', type=bool, required=False, help="Serve files in the directory miniserver runs in - False by default")
+parser.add_argument('-sf', '--servefiles', action='store_true', required=False, default=False, help="Serve files in the directory miniserver runs in - Defaults to False")
+parser.add_argument('-dp', '--disablepost', action='store_true', required=False, default=False, help="Disable server accepting POST requests")
+parser.add_argument('-p', '--port', type=int, required=False, help="Port to listen on - Defaults to 8000 - False by default")
 args = parser.parse_args()
 
 # Define ANSI escape codes for text colors
@@ -13,12 +15,19 @@ RED = "\033[91m"
 GREEN = "\033[92m"
 RESET = "\033[0m"
 
-# Set a flag to determine the behavior of the root path
-serve_files = False
+# Set bind port
+bind_port = 8000
 
-if args.servefiles:
-    serve_files = args.servefiles
+if args.port:
+    bind_port = args.port
+
+
+# Determine the behavior of the root path
+serve_files = args.servefiles
+
+if args.servefiles == True:
     print("Serving files from this directory")
+
 
 def log_and_print(message, color=GREEN):
     tag = GREEN + "[LOG] " + RESET
@@ -92,31 +101,40 @@ class CustomRequestHandler(BaseHTTPRequestHandler):
         content_length = int(self.headers['Content-Length'])
         post_data = self.rfile.read(content_length).decode("utf-8")
         client_ip = self.client_address[0]
-        
-        # Create a filename based on the client's IP address and timestamp
-        timestamp = time.strftime("%d-%m-%Y@%H:%M:%S")
-        filename = f"data/{client_ip}_{timestamp}.txt"
 
-        title = "POST request from:" + client_ip + "@" + timestamp
-        with open(filename, 'w') as file:
-            file.write('POST from: ')
-            file.write(client_ip)
-            file.write(os.linesep)
-            file.write('Time: ')
-            file.write(timestamp)
-            file.write(os.linesep)
-            file.write('Post Data: ')
-            file.write(os.linesep)
-            file.write(post_data)
-            file.write(os.linesep)
+        if args.disablepost:
+            # Respond with a 405 Method Not Allowed status
+            self.send_response(405)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            self.wfile.write(b'405 Method Not Allowed: POST requests are disabled.')
+            log_and_print(RED + "[ERROR] " + RESET + "POST request received, but POST requests are disabled.")
         
-        self.send_response(200)
-        self.send_header('Content-type', 'text/html')
-        self.end_headers()
-        self.wfile.write(f"200-OK".encode("utf-8"))
-        log_and_print(f"POST request received from {client_ip} and saved to file: {filename}")
+            # Create a filename based on the client's IP address and timestamp
+        else:
+            timestamp = time.strftime("%d-%m-%Y@%H:%M:%S")
+            filename = f"data/{client_ip}_{timestamp}.txt"
 
-def run(server_class=HTTPServer, handler_class=CustomRequestHandler, port=8000):
+            title = "POST request from:" + client_ip + "@" + timestamp
+            with open(filename, 'w') as file:
+                file.write('POST from: ')
+                file.write(client_ip)
+                file.write(os.linesep)
+                file.write('Time: ')
+                file.write(timestamp)
+                file.write(os.linesep)
+                file.write('Post Data: ')
+                file.write(os.linesep)
+                file.write(post_data)
+                file.write(os.linesep)
+            
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            self.wfile.write(f"200-OK".encode("utf-8"))
+            log_and_print(f"POST request received from {client_ip} and saved to file: {filename}")
+
+def run(server_class=HTTPServer, handler_class=CustomRequestHandler, port=bind_port):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     log_and_print(f'Starting the server on port {port}. Press Ctrl+C to stop.')
