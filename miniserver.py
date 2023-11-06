@@ -30,6 +30,13 @@ serve_files = args.servefiles
 if args.servefiles == True:
     print("Serving files from this directory")
 
+# Create the "data" and "log" folders if they don't exist
+if not os.path.exists('data'):
+    os.makedirs('data')
+
+if not os.path.exists('log'):
+    os.makedirs('log')
+
 
 def log_and_print(message, color=GREEN):
     tag = GREEN + "[LOG] " + RESET
